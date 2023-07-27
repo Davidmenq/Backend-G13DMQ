@@ -10,7 +10,8 @@ class UsuarioModel(conexion.Model):
     correo = Column(type_=types.Text, unique=True, nullable=False)
     telefono = Column(type_=types.Text, nullable=True)
     linkedinUrl = Column(name='linkedin_url', type_=types.Text)
+ 
 
-#__tablename__ > sirve para indicar el nombre de la tabla en la base de datos, si no
-#se le proporciona usara el nombre de la clase
-__tablename__='usuarios'
+    #__tablename__ > sirve para indicar el nombre de la tabla en la base de datos, si no
+    #se le proporciona usara el nombre de la clase
+    __tablename__ = 'usuarios'
