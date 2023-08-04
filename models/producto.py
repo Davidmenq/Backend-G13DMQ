@@ -1,7 +1,7 @@
 from utilitarios import conexion
 from sqlalchemy import Column, ForeignKey,types
 
-class ProductoModel(conexion.model):
+class ProductoModel(conexion.Model):
     id = Column(type_=types.Integer, primary_key=True)
     nombre = Column(type_=types.Text, nullable=False)
     descripcion = Column(type_=types.Text)
