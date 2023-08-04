@@ -19,6 +19,7 @@ marshmallow==3.20.1
 marshmallow-sqlalchemy==0.29.0
 packaging==23.1
 psycopg2==2.9.6
+python-dotenv==1.0.0
 pytz==2023.3
 six==1.16.0
 SQLAlchemy==2.0.19
