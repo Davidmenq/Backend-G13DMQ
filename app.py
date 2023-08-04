@@ -40,7 +40,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL')
 #inicializar mi aplicacion de flask sql alchemy
 #dentro de la aplicacion de flask tendremos nuestra conexion a  la base de datos
 conexion.init_app(app)
-api.init_app(app)
+#api.init_app(app)
 
 Migrate(app=app, db=conexion)
 
