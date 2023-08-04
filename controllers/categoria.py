@@ -1,7 +1,7 @@
 from flask_restful import Resource, request
 from models import CategoriaModel
 
-class CategfirasController(Resources):
+class CategfirasController(Resource):
     def post(self):
         pass
 
