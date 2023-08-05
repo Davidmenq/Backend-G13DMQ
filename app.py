@@ -7,7 +7,7 @@ from os import environ
 from dotenv import load_dotenv
 from models import *
 from flasgger import Swagger
-from controllers import CategoriasController, RegistroController
+from controllers import CategoriasController, RegistroController, LoginController
 from json import load
 
 load_dotenv()
@@ -39,6 +39,7 @@ Migrate(app, conexion)
 
 api.add_resource(CategoriasController, '/categorias')
 api.add_resource(RegistroController, '/registro')
+api.add_resource(LoginController, '/login')
 
 if __name__=='__main__':
     app.run(debug=True)
