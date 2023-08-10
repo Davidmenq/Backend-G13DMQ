@@ -9,6 +9,8 @@ from models import *
 from flasgger import Swagger
 from controllers import CategoriasController, RegistroController, LoginController
 from json import load
+from flask_jwt_extended import JWTManager
+from datetime import timedelta
 
 load_dotenv()
 swaggerData =load(open('swagger_data.json', 'r'))
@@ -27,6 +29,11 @@ swaggerConfig ={
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']=environ.get('DATABASE_URL')
+
+app.config['JWT_SECRET_KEY'] = environ.get('JWT_SECRET')
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1,minutes=15)
+
+JWTManager(app)
 
 Swagger(app, template=swaggerData, config=swaggerConfig)
 
