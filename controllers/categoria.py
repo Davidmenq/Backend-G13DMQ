@@ -2,12 +2,13 @@ from flask_restful import Resource, request
 from models import CategoriaModel
 from dtos import CategoriaRequestDto
 from utilitarios import conexion
+from decorators import validador_usuario_admin
+# get_jwt_identity > devolvera la identificacion del usuario de la token
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 class CategoriasController(Resource):
 
-    @jwt_required()
-    
+    @validador_usuario_admin
     def post(self):
         """
         Creacion de una categoria
@@ -30,48 +31,45 @@ class CategoriasController(Resource):
                     imagen:
                         type: string
                         example: 'https://www.google.com'
-                    
         security:
-            -   Bearer:[]
+            -   Bearer: []
         responses:
             201:
               description: Categoria creada exitosamente
               schema:
                  $ref: '#/definitions/Categoria'
         """
-
-        dto=CategoriaRequestDto()
-        identificador = get_jwt_identity()
-        print(identificador)
-        return {
-            'message': 'Todo ok'
-        }
+        dto = CategoriaRequestDto()
+        # identificador = get_jwt_identity()
+        # print(identificador)
+        
         try:
-            dataVerificada=dto.load(request.get_json())
-            nuevaCategoria=CategoriaModel(**dataVerificada)
+            dataVerificada = dto.load(request.get_json())
+            nuevaCategoria = CategoriaModel(**dataVerificada)
             conexion.session.add(nuevaCategoria)
             conexion.session.commit()
-            return{
+            return {
                 'message': 'Categoria creada exitosamente',
-                'comtent': ''
-            },201
+                'content': ''
+            }, 201
         
         except Exception as e:
+            # rollback > retroceder el estado antes de que se de el error en la base de datos
             conexion.session.rollback()
             return{
-                'message':'Error al crear la categoria',
-                'content':e.args
+                'message': 'Error al crear la categoria',
+                'content': e.args
             }, 400
-        
+
 
     def get(self):
         """
         file: getCategoria.yml
         """
-        categorias= conexion.session.query(CategoriaModel).all()
-        dto=CategoriaRequestDto()
-        resultado=dto.dump(categorias, many=True)
+        categorias = conexion.session.query(CategoriaModel).all()
+        dto = CategoriaRequestDto()
+        resultado =dto.dump(categorias, many=True)
 
-        return{
+        return {
             'content': resultado
         },200

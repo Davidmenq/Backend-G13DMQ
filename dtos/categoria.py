@@ -3,5 +3,5 @@ from models import CategoriaModel
 
 class CategoriaRequestDto(SQLAlchemyAutoSchema):
     class Meta:
-        model=CategoriaModel
+        model = CategoriaModel
 

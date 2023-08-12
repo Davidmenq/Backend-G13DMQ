@@ -1,12 +1,11 @@
 {
     "swagger": "2.0",
     "info":{
-        "title": "Tienda de cuchillos API",
+        "title": "Tienda de Cuchillos API",
         "description": "API para controlar los productos de la tienda de cuchillos",
-        "contact":{
+        "contact": {
             "responsibleDeveloper": "David MQ",
             "email": "davidmenq10@gmail.com"
-
         },
         "version": "1.0"
     },
