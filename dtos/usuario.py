@@ -25,3 +25,7 @@ class UsuarioResponseDto(SQLAlchemyAutoSchema):
 class LoginRequestDto(Schema):
     correo = fields.Email(required=True)
     password = fields.Str(required=True)
+
+class CambiarPasswordRequestDto(Schema):
+    password = fields.String(required=True)
+    nuevoPassword = fields.String(required=True)

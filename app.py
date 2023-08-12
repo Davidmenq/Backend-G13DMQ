@@ -5,13 +5,6 @@ from utilitarios import conexion
 from flask_cors import CORS
 from os import environ
 from dotenv import load_dotenv
-from flask import Flask
-from flask_restful import Api
-from flask_migrate import Migrate
-from utilitarios import conexion
-from flask_cors import CORS
-from os import environ
-from dotenv import load_dotenv
 from models import *
 from flasgger import Swagger
 from controllers import (CategoriasController, 
@@ -20,7 +13,9 @@ from controllers import (CategoriasController,
                          SubirImagenController, 
                          DevolverImagenController,
                          ProductosController,
-                         PedidosController)
+                         PedidosController,
+                         UsuarioController,
+                         CambiarPasswordController)
 from flask_jwt_extended import JWTManager
 # convierte un string en formato json a un diccionario
 from json import load
@@ -71,6 +66,8 @@ api.add_resource(SubirImagenController, '/subir-imagen')
 api.add_resource(DevolverImagenController, '/imagenes/<nombreImagen>')
 api.add_resource(ProductosController, '/productos')
 api.add_resource(PedidosController, '/pedidos')
+api.add_resource(UsuarioController, '/perfil')
+api.add_resource(CambiarPasswordController, '/cambiar-password')
 
 if __name__ == '__main__':
     app.run(debug=True)
