@@ -16,7 +16,7 @@ class CategoriModel(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     nombre = models.TextField(null=False)
-    nivelAzucar = models.TextField(name='nivel_azucar', null=False, choices=opcionesNivelAzucar)
+    nivelAzucar = models.TextField(db_column='nivel_azucar', null=False, choices=opcionesNivelAzucar)
 
     class Meta:
         db_table = 'categorias'
@@ -28,8 +28,8 @@ class GolosinaModel(models.Model):
     )
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
-    nombre = models.TimeField(null=False)
-    fechaVencimiento = models.DateField(editable=False, null=False, name='fecha_vencimiento')
+    nombre = models.TextField(null=False)
+    fechaVencimiento = models.DateField(editable=False, null=False, db_column='fecha_vencimiento')
     precio = models.FloatField(null=False)
     procedencia = models.TextField(choices=tipoProcedencia, default='NACIONAL')
 
@@ -38,4 +38,4 @@ class GolosinaModel(models.Model):
     
     class Meta:
         db_table = 'golosinas'
-        unique_together = [['nombre', 'fecha_vencimiento']]
+        unique_together = [['nombre', 'fechaVencimiento']]
