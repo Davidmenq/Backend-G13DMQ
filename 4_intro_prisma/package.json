@@ -15,10 +15,12 @@
   "author": "david mendoza",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.17",
     "nodemon": "^3.0.1"
   },
   "dependencies": {
     "@prisma/client": "^5.2.0",
+    "express": "^4.18.2",
     "prisma": "^5.2.0"
   }
 }
