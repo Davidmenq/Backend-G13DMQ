@@ -1,0 +1,24 @@
+{
+  "name": "intro_prisma",
+  "version": "1.0.0",
+  "description": "Proyecto con node y prisma",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "node",
+    "prisma"
+  ],
+  "author": "david mendoza",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.2.0",
+    "prisma": "^5.2.0"
+  }
+}

@@ -17,6 +17,7 @@ export function esMayor(){
 export function notas(){
 
 }
+
 let num =20;
 
 if (num%2===0) {
