@@ -1,0 +1,2 @@
+db          >   muestra en que base de datos me encuentro
+show dbs    >    muestra las bases de datos 

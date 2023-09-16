@@ -1,0 +1,9 @@
+entorno_*
+node_modules/
+.env
+2*
+3*
+4*
+eco*
+package*
+prisma/
