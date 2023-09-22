@@ -1,0 +1,6 @@
+# funciona igual que el gitignore
+
+entorno_*
+node_modules
+.env
+__pycache__
