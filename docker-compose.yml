@@ -18,6 +18,9 @@ services:
       - DB_NAME=notes
       - DB_HOST=my_bd
       - DB_PORT=5432
+    env_file:
+      - .env
+
   my_bd:
     image: postgres:16.0
     ports:
